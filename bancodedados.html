@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dados dos Usuários</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="container">
+    <section class="header">
+      <h2>Dados dos Visitantes</h2>
+    </section>
+
+    <table class="user-data">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Congregação</th>
+          <th>Telefone</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody id="userDataBody">
+        <!-- Aqui serão inseridos os dados dos usuários preenchidos no formulário -->
+      </tbody>
+    </table>
+
+    <!-- Botão para limpar todos os registros -->
+    <button onclick="clearAllData()" class="redirect-button">Limpar Todos os Registros</button>
+    <!-- Botão para voltar à página anterior -->
+    <button onclick="goBack()" class="redirect-button">Voltar</button>
+  </div>
+  
+  <script>
+    function goBack() {
+      console.log("Voltando para a página anterior");
+      window.history.back();
+    }
+
+    // Recuperar os dados dos usuários preenchidos no formulário da página anterior
+    let userData = JSON.parse(localStorage.getItem('users')) || [];
+    const userDataBody = document.getElementById('userDataBody');
+
+    // Verificar se existem dados de usuários para exibir
+    if (userData && userData.length > 0) {
+      // Iterar sobre os dados dos usuários e criar as linhas da tabela
+      userData.forEach((user, index) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${user.name}</td>
+          <td>${user.congregation}</td>
+          <td>${user.phone || 'N/A'}</td>
+          <td><button onclick="deleteUser(${index})">Excluir</button></td>
+        `;
+        userDataBody.appendChild(row);
+      });
+    }
+
+    function deleteUser(index) {
+      // Remover o usuário da lista de dados
+      userData.splice(index, 1);
+      // Atualizar o localStorage com os novos dados
+      localStorage.setItem('users', JSON.stringify(userData));
+      // Atualizar a tabela
+      location.reload();
+    }
+
+    function clearAllData() {
+      // Limpar todos os registros
+      localStorage.removeItem('users');
+      // Atualizar a tabela
+      location.reload();
+    }
+  </script>
+</body>
+</html>

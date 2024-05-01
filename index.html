@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="PT-br">
+<head>
+  <link rel="stylesheet" href="index.css">
+  <style>
+    .form-box {
+      position: relative;
+    }
+    .voltar-btn {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+    }
+  </style>
+  <title>Login da Igreja</title>
+</head>
+<body>
+    <section>
+        <div class="form-box">
+            <div class="form-value">
+                <h2>Login</h2>
+                <form id="loginForm">
+                    <div class="inputbox">
+                        <ion-icon name="person-outline"></ion-icon>
+                        <input id="username" type="text" required>
+                        <label for="username">Usuário</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input id="password" type="password" required>
+                        <label for="password">Senha</label>
+                    </div>
+                    <button type="submit">Entrar</button>
+                </form>
+            </div>
+            <!-- Botão para voltar à página inicial -->
+            <button class="voltar-btn" onclick="voltarParaPaginaInicial()">Voltar à Página Inicial</button>
+        </div>
+    </section>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script>
+        function voltarParaPaginaInicial() {
+            // Redireciona para a página inicial que está fora do diretório atual
+            window.location.href = 'indexigreja.html';
+        }
+
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita o envio do formulário
+
+            // Verifica as credenciais
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            // Verifica se as credenciais são corretas (neste caso, "admin" para ambos)
+            if (username === 'admin' && password === 'admin') {
+                // Redireciona para outra página
+                window.location.href = 'formulario2.html';
+            } else {
+                alert('Credenciais incorretas. Por favor, tente novamente.');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- FIM GOOGLE FONTES -->
+    <!-- BOOTSTRAP ICONS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <!-- FIM BOOTSTRAP ICONS -->
+    <link rel="stylesheet" href="styleigreja.css">
+
+    <script src="scriptsigreja.js" defer></script>
+    <script src="menu.js" defer></script>
+
+    <title>igreja vila autódromo cajuru assembleia ieadc</title>
+
+    <!-- Estilo CSS para ajustar o tamanho da imagem -->
+    <style>
+        /* Coloque o CSS atualizado aqui */
+        /* Estilo do portfólio */
+        section.portfolio {
+            padding: 80px 4%;
+            box-shadow: 0 0 40px 10px #ffffff1d;
+        }
+
+        section.portfolio .flex {
+            justify-content: space-around;
+            margin-top: 60px;
+        }
+
+        .img-port {
+            width: 360px;
+            height: 460px;
+            background-size: cover;
+            background-position: center; /* Ajuste a posição para o centro */
+            transition: 8s;
+            cursor: pointer;
+            border-radius: 40px;
+            position: relative;
+        }
+
+        .img-port:hover {
+            background-position: center;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000000b8;
+            border-radius: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 600;
+            color: #fff;
+            opacity: 0;
+            transition: .5s;
+        }
+
+        .overlay:hover {
+            opacity: 1;
+        }
+
+        /* Estilo do formulário de contato */
+        section.formulario {
+            padding: 80px 4%;
+        }
+
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 40px;
+        }
+
+        form input,
+        form textarea {
+            width: 100%;
+            background-color: #242424;
+            border: 0;
+            outline: 0;
+            padding: 20px 15px;
+            border-radius: 15px;
+            color: #fff;
+            font-size: 18px;
+        }
+
+        form textarea {
+            resize: none;
+            max-height: 200px;
+        }
+
+        form .btn-enviar {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        form .btn-enviar input {
+            width: 120px;
+            background-color: #00FF08;
+            color: #000;
+            font-weight: 700;
+            cursor: pointer;
+            transition: .2s;
+        }
+
+        /* Estilo do rodapé */
+        footer {
+            padding: 40px 4%;
+            box-shadow: 0 0 40px 10px #ffffff1d;
+        }
+
+        footer .flex {
+            justify-content: space-between;
+        }
+
+        footer .line-footer {
+            padding: 20px 0;
+        }
+
+        .borda {
+            border-top: 2px solid #00FF08;
+        }
+
+        footer .line-footer p i {
+            color: #00FF08;
+            font-size: 22px;
+        }
+
+        footer .line-footer p a {
+            color: #fff;
+        }
+
+        /* Menu Lateral */
+        .menu-lateral {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+        }
+
+        .menu-lateral i {
+            color: #fff;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        @media screen and (max-width: 1020px) {
+
+            /* Classes gerais */
+            .flex {
+                flex-direction: column;
+            }
+
+            .topo-do-site .flex{
+                flex-direction: column-reverse;
+            }
+
+            h2.titulo {
+                font-size: 34px;
+                line-height: 30px;
+            }
+
+            /* Cabeçalho */
+            .menu-desktop,
+            .btn-contato {
+                display: none;
+            }
+
+            /* Topo do site */
+
+            section.topo-do-site .flex {
+                gap: 40px;
+            }
+
+            section.topo-do-site {
+                padding: 20px 8%;
+            }
+
+            .topo-do-site h1 {
+                font-size: 30px;
+            }
+
+            .topo-do-site .img-topo-site img {
+                width: 100%;
+            }
+
+            /* Especialidades */
+            section.especialidades {
+                padding: 40px 8%;
+            }
+
+            /* Sobre */
+            section.sobre {
+                padding: 80px 8%;
+            }
+
+            .sobre .txt-sobre h2 {
+                font-size: 34px;
+                line-height: 35px;
+                text-align: center;
+            }
+            
+            .btn-social{
+                text-align: center;
+            }
+
+            .img-sobre img{
+                width: 100%;
+            }
+
+            /* Portfólio */
+            section.portfolio {
+                padding: 80px 8%;
+            }
+
+            .img-port {
+                width: 100%;
+                max-width: 360px;
+                margin: 0 auto;
+            }
+            
+            section.portfolio .flex {
+               gap: 60px;
+            }
+
+            /* Rodapé */
+            footer .flex {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            footer .line-footer {
+                text-align: center;
+            }
+        }
+
+        /* Remova o efeito de balanço das imagens na versão mobile */
+        @media screen and (max-width: 1020px) {
+            .img-topo-site img {
+                animation: none; /* Remove a animação de balanço */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="interface">
+            <div class="logo">
+                <a href="#">
+                    <img src="foto do chapeu da igreja.png" alt="assembleia">
+                </a>
+            </div><!--logo-->
+
+            <nav class="menu-desktop">
+                <ul>
+                    <li><a href="https://assembleiadedeus.org.br/biblia-on-line/">BÍBLIA</a></li>
+                    <li><a href="https://www.harpacrista.org/hino/2-saudosa-lembranca">HINO DA HARPA</a></li>
+                    <li><a href="https://www.google.com.br/maps/place/R.+Leonardo+Novicki,+5+-+Cajuru,+Curitiba+-+PR,+82930-548/@-25.4532101,-49.2006965,17z/data=!3m1!4b1!4m10!1m2!2m1!1srua+leonardo+novicki+5+82.930-548+aut%C3%B3dromo+!3m6!1s0x94dceff72d6f9a7f:0xf46df1c3db683bfc!8m2!3d-25.4532101!4d-49.1981216!15sCixydWEgbGVvbmFyZG8gbm92aWNraSA1IDgyLjkzMC01NDggYXV0w7Nkcm9tb5IBEWNvbXBvdW5kX2J1aWxkaW5n4AEA!16s%2Fg%2F11cr_hnfq6?entry=ttu">VENHA PARTICIPAR CONOSCO</a></li>
+                    <li><a href="areajovens.html">JOVENS</a></li>
+                    <li><a href="https://www.estudantesdabiblia.com.br/cpad-sumario-jovens-2024-2t.htm">ESCOLA BÍBLICA EBD</a></li>
+                    <li><a href="index.html">Nossa Área</a></li>
+                </ul>
+            </nav>
+            <body>
+                <!-- Outros elementos HTML -->
+            
+                
+            
+                <!-- Outros elementos HTML -->
+            
+            </body>
+            
+            <div class="menu-lateral">
+                <i class="bi bi-list"></i>
+                <div class="menu-mobile" id="menu-mobile">
+                    <div class="btn-fechar">
+                        <i class="bi bi-x-lg"></i>
+                    </div>
+                    <nav>
+                        <ul>
+                            <li><a href="https://assembleiadedeus.org.br/biblia-on-line/">BÍBLIA</a></li>
+                            <li><a href="https://www.harpacrista.org/hino/2-saudosa-lembranca">HINO DA HARPA</a></li>
+                            <li><a href="https://www.google.com.br/maps/place/R.+Leonardo+Novicki,+5+-+Cajuru,+Curitiba+-+PR,+82930-548/@-25.45321,-49.2029925,17z/data=!3m1!4b1!4m10!1m2!2m1!1srua+leonardo+novicki+5+82.930-548+aut%C3%B3dromo+!3m6!1s0x94dceff72d6f9a7f:0xf46df1c3db683bfc!8m2!3d-25.4532101!4d-49.1981216!15sCixydWEgbGVvbmFyZG8gbm92aWNraSA1IDgyLjkzMC01NDggYXV0w7Nkcm9tb5IBEWNvbXBvdW5kX2J1aWxkaW5n4AEA!16s%2Fg%2F11cr_hnfq6?entry=ttu">VENHA PARTICIPAR CONOSCO</a></li>
+                            <li><a href="areajovens.html">JOVENS</a></li>
+                            <li><a href="https://www.estudantesdabiblia.com.br/cpad-sumario-jovens-2024-2t.htm">ESCOLA BÍBLICA EBD</a></li>
+                            <a href="index.html">Nossa Área</a>
+                        </ul>   
+                    </nav>
+                </div>
+            </div>
+        </div><!--interface-->
+    </header>
+
+    <main>
+        <section class="topo-do-site">
+            <div class="interface">
+                <div class="flex">
+                    <div class="txt-topo-site">
+                        <h1>Assembleia de Deus-Autódromo<span>.</span></h1>
+                        <p>Romanos 12,21 A Bíblia, como uma assembleia de sábios, reúne os ensinamentos de gerações passadas para iluminar o caminho da humanidade. Em suas páginas, encontramos a voz unificada de profetas, poetas e líderes, ecoando através do tempo. É um lugar onde as experiências individuais se fundem em uma narrativa coletiva de fé e redenção. Sua mensagem ressoa como um convite à comunhão, unindo os corações em um propósito maior. É na assembleia da Bíblia que encontramos inspiração para enfrentar desafios e celebrar triunfos, fortalecidos pela sabedoria compartilhada.</p>
+                        <div class="btn-contato">
+                            <a href="#">
+                             
+                            </a>
+                        </div>
+                    </div><!--txt-topo-site-->
+
+                    <div class="img-topo-site">
+                        <img src="foto do cartaz- atualizado.jpg" alt="" class="active">
+                        <img src="foto que gira.jpg" alt="">
+                        
+                    </div><!--img-topo-site-->
+                </div><!--flex-->
+            </div><!--interface-->
+        </section><!--topo-do-site-->
+
+        <section class="sobre">
+            <div class="interface">
+                <div class="flex">
+                    <div class="img-igreja">
+                        <img src="autodromo-foto-1-930x620.jpg" alt="">
+                    </div><!--img-sobre-->
+
+                    <div class="txt-sobre">
+                        <h2>Muito prazer em recebê-lo na Igreja <span>Autódromo – Cajuru.</span></h2>
+                        <p>Assembleias de Deus, chamadas oficialmente Fraternidade Mundial das Assembleias de Deus, são uma comunhão cristã evangélica pentecostal internacional de igrejas. As Assembleias originaram-se do ressurgimento pentecostal do início do século XX..</p>
+                        <p>Lucas 2:49 
+                            “Mas por que estavam me procurando?”, perguntou ele. “Não sabiam que eu deveria estar na casa do meu Pai?”.</p>
+                        <div class="btn-social">
+                            <a href="https://www.instagram.com/umadc_autodromo?igsh=MTU1b2pscnF1Zmw1bQ=="><button><i class="bi bi-instagram"></i></button></a>
+                           
+                        </div><!--btn-social-->
+                    </div><!--txt-sobre-->
+                </div><!--flex-->
+            </div><!--interface-->
+        </section><!--sobre-->
+
+        <section class="portfolio">
+            <div class="interface">
+                <h2 class="titulo"> <span>informações</span></h2>
+                <div class="flex">
+                    <div class="img-port" style="background-image: url(foto\ 1.jpg);">
+                        <div class="overlay"></div>
+                    </div>
+                    <div class="img-port" style="background-image: url(foto\ 2.jpg);">
+                        <div class="overlay"></div>
+                    </div>
+                    <div class="img-port" style="background-image: url(foto\ 3.jpg);">
+                        <div class="overlay"></div>
+                    </div>
+                </div><!--flex-->
+            </div><!--interface-->
+        </section><!--portfolio-->
+
+        
+            </div><!--interface-->
+        </section><!--formulario-->
+
+    </main>
+
+    <footer>
+        <div class="interface">
+            <div class="line-footer">
+                <div class="flex">
+                    <div class="Logo-igreja">
+                        <img src="foto do chapeu da igreja.png" alt="Assembleia" class="Logo-igreja">
+                    </div><!--logo-footer-->
+                    <div class="btn-social">
+                        <a href="https://www.instagram.com/umadc_autodromo?igsh=MTU1b2pscnF1Zmw1bQ=="><button><i class="bi bi-instagram"></i></button></a>
+                        
+                    </div><!--btn-social-->
+                </div>
+            </div><!--line-footer-->
+
+            <div class="line-footer borda">
+                <p><i class="bi bi-envelope-fill"></i> <a href="mailto:web@assembleiadedeus.org.br">web@assembleiadedeus.org.br</a></p>
+            </div><!--line-footer-->
+        </div><!--interface-->
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let index = 0;
+            const images = document.querySelectorAll('.img-topo-site img');
+            const interval = 5000; // tempo em milissegundos entre as transições
+
+            function changeImage() {
+                images[index].classList.remove('active');
+                index = (index + 1) % images.length;
+                images[index].classList.add('active');
+            }
+
+            setInterval(changeImage, interval);
+        });
+    </script>
+
+</body>
+</html>
+
+
+

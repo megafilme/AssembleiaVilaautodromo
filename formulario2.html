@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Novo usuário - Sujeito Programador</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+  <style>
+    .redirect-button {
+      background-color: navy;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .redirect-button:hover {
+      background-color: darkblue;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <section class="header">
+      <h2>Nosso convidado</h2>
+    </section>
+
+    <form id="form" class="form" onsubmit="saveUserData(event)">
+      <div class="form-content">
+        <label for="name">Nome do convidado</label>
+        <input type="text" id="name" placeholder="Digite o nome do usuário..." required>
+        <a id="nameError" class="error-message"></a>
+      </div>
+
+      <div class="form-content">
+        <label for="congregation">Congregação</label>
+        <input type="text" id="congregation" placeholder="Digite a congregação..." required>
+        <a id="congregationError" class="error-message"></a>
+      </div>
+
+      <div class="form-content">
+        <label for="phone">Telefone (opcional)</label>
+        <input type="tel" id="phone" placeholder="Digite o telefone (opcional)...">
+        <a id="phoneError" class="error-message"></a>
+      </div>
+
+      <button type="submit">Registrar</button>
+      <div id="successMessage" style="display: none; color: green;">Cadastro realizado com sucesso!</div>
+    </form>
+
+    <!-- Botão para redirecionar para outra página -->
+    <button onclick="redirectToUserData()" class="redirect-button">Ver as informações do visitante</button>
+
+  </div>
+  
+  <script src="./script.js" defer></script>
+
+  <script>
+    function redirectToUserData() {
+      console.log("Redirecionando para dados_usuario.html");
+      window.location.href = "bancodedados.html";
+    }
+
+    function saveUserData(event) {
+      event.preventDefault(); // Evitar que o formulário seja enviado
+
+      // Obter os dados do formulário
+      const name = document.getElementById('name').value;
+      const congregation = document.getElementById('congregation').value;
+      const phone = document.getElementById('phone').value;
+
+      // Validar os dados (pode adicionar validações aqui, se necessário)
+
+      // Criar um objeto com os dados do usuário
+      const userData = {
+        name: name,
+        congregation: congregation,
+        phone: phone
+      };
+
+      // Armazenar os dados no localStorage
+      let users = JSON.parse(localStorage.getItem('users')) || [];
+      users.push(userData);
+      localStorage.setItem('users', JSON.stringify(users));
+
+      // Exibir mensagem de sucesso
+      document.getElementById('successMessage').style.display = 'block';
+
+      // Limpar os campos do formulário
+      document.getElementById('form').reset();
+
+      // Redirecionar para a página de dados dos usuários
+      redirectToUserData();
+    }
+  </script>
+</body>
+</html>
